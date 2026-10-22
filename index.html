@@ -4,168 +4,264 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#075b45">
-<title>حافظ الحديث — نموذج أولي</title>
+<title>حافظ الحديث — الأربعون النووية</title>
 <style>
 :root{--green:#075b45;--green2:#0b7658;--pale:#eaf5ef;--cream:#fbfaf5;--ink:#17352d;--muted:#60766e;--red:#b42318;--amber:#a15c00;--line:#d9e6df}
-*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.65}
+*{box-sizing:border-box}
+body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.65}
 header{background:var(--green);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:2}
-.brand{font-size:1.15rem;font-weight:800}.subbrand{font-size:.78rem;opacity:.85}
+.brand{font-size:1.15rem;font-weight:800}
+.subbrand{font-size:.78rem;opacity:.85}
 main{max-width:780px;margin:0 auto;padding:18px 14px 40px}
 .hero{background:linear-gradient(135deg,#e5f3eb,#fffdf6);border:1px solid var(--line);border-radius:22px;padding:22px 18px;margin-bottom:16px}
-h1{font-size:1.45rem;margin:0 0 4px;color:var(--green)}h2{font-size:1.05rem;margin:0 0 12px}
-p{margin:5px 0}.muted{color:var(--muted);font-size:.9rem}
+h1{font-size:1.45rem;margin:0 0 4px;color:var(--green)}
+h2{font-size:1.05rem;margin:0 0 12px}
+p{margin:5px 0}
+.muted{color:var(--muted);font-size:.9rem}
 .card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin:14px 0;box-shadow:0 5px 18px #0b45350a}
-label{display:block;font-weight:700;margin:0 0 6px}select,textarea,input{width:100%;border:1px solid #bfd2c8;border-radius:12px;padding:12px;background:#fff;color:var(--ink);font:inherit}
+label{display:block;font-weight:700;margin:0 0 6px}
+select,textarea,input{width:100%;border:1px solid #bfd2c8;border-radius:12px;padding:12px;background:#fff;color:var(--ink);font:inherit}
 textarea{min-height:95px;resize:vertical}
 button{border:0;border-radius:13px;padding:12px 16px;font:inherit;font-weight:750;cursor:pointer}
-.primary{background:var(--green);color:#fff}.secondary{background:var(--pale);color:var(--green);border:1px solid var(--line)}.danger{background:#fff0ee;color:var(--red)}
-.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.status{margin-top:10px;padding:10px 12px;border-radius:12px;background:#f3f7f4;font-size:.9rem}
+.primary{background:var(--green);color:#fff}
+.secondary{background:var(--pale);color:var(--green);border:1px solid var(--line)}
+.danger{background:#fff0ee;color:var(--red)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}
+.status{margin-top:10px;padding:10px 12px;border-radius:12px;background:#f3f7f4;font-size:.9rem}
 .hadith{font-size:1.12rem;line-height:2.15;background:#fcfdfb;border:1px solid var(--line);border-radius:14px;padding:14px}
-.words{line-height:2.35;font-size:1.08rem}.word{display:inline-block;border-radius:6px;padding:0 3px;margin:1px 0}.correct{background:#d9f5e4;color:#075b45}.wrong{background:#ffe2df;color:#a21b13;text-decoration:underline wavy}.missing{background:#fff0c7;color:#8a4b00;border:1px dashed #dca33c}
-.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:8px 0}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:4px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.stat{background:var(--pale);border-radius:12px;text-align:center;padding:10px 4px}.stat strong{display:block;font-size:1.3rem;color:var(--green)}
-.small{font-size:.8rem}.notice{border-right:4px solid #dca33c;background:#fff8e6;padding:12px;border-radius:10px;font-size:.86rem}
+.words{line-height:2.35;font-size:1.08rem}
+.word{display:inline-block;border-radius:6px;padding:0 3px;margin:1px 0}
+.correct{background:#d9f5e4;color:#075b45}
+.wrong{background:#ffe2df;color:#a21b13;text-decoration:underline wavy}
+.missing{background:#fff0c7;color:#8a4b00;border:1px dashed #dca33c}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:8px 0}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.stat{background:var(--pale);border-radius:12px;text-align:center;padding:10px 4px}
+.stat strong{display:block;font-size:1.3rem;color:var(--green)}
+.small{font-size:.8rem}
+.notice{border-right:4px solid #dca33c;background:#fff8e6;padding:12px;border-radius:10px;font-size:.86rem}
 footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
 @media(min-width:650px){main{padding-top:26px}.hero{padding:28px}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}}
+
+/* ================= نمط الطباعة / PDF ================= */
+@media print {
+  @page { margin: 14mm; }
+  body { background: #fff; color: #000; }
+  header, .hero, footer, .actions, .status, textarea, label[for="transcript"],
+  #start, #stop, #clear, #compare, #toggleText, #showText, #prev, #next,
+  .legend, .notice { display: none !important; }
+  main { max-width: 100%; padding: 0; }
+  .card { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+  .print-header { display: block !important; text-align: center; margin-bottom: 12px; }
+  .print-header h1 { font-size: 1.4rem; color: #000; }
+  .print-header .print-sub { font-size: .9rem; color: #333; }
+  .word { border: 1px solid transparent; }
+  .correct { background: #d9f5e4 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .wrong { background: #ffe2df !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .missing { background: #fff0c7 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  .stats { page-break-inside: avoid; }
+}
+.print-header { display: none; }
 </style>
 </head>
 <body>
-<header><div><div class="brand">📖 حافظ الحديث</div><div class="subbrand">اسمع • قارن • أتقن</div></div><div class="small">نسخة تجريبية</div></header>
+<header>
+  <div>
+    <div class="brand">📖 حافظ الحديث</div>
+    <div class="subbrand">متن الأربعين النووية • اسمع وقارن</div>
+  </div>
+  <div class="small">نسخة تجريبية</div>
+</header>
+
 <main>
-<section class="hero">
-<h1>احفظ الحديث، كلمةً كلمة</h1>
-<p>اختر حديثًا، أخفِ النص إن أردت، ثم سمّع بصوتك وقارن النتيجة بالنص المرجعي.</p>
-<p class="muted">هذا نموذج أولي للتجربة، وليس تطبيقًا حديثيًا معتمدًا بعد.</p>
-</section>
+  <section class="hero">
+    <h1>احفظ متن الأربعين النووية</h1>
+    <p>اختر حديثًا من الأحاديث الـ42، ثم سمّع بصوتك أو اكتب ما حفظته. النص المعروض هو متن الحديث فقط دون الإسناد وشرح الراوي.</p>
+    <p class="muted">التعرّف الصوتي يعتمد على دعم المتصفح والإنترنت، والنتيجة تقريبية وليست تصحيحًا علميًا معتمدًا.</p>
+  </section>
 
-<section class="card">
-<h2>١. اختر الحديث</h2>
-<label for="collection">مجموعة الأحاديث</label>
-<select id="collection">
-<option value="bukhari">صحيح البخاري</option>
-<option value="muslim">صحيح مسلم</option>
-<option value="riyad">رياض الصالحين</option>
-<option value="custom">نص تجريبي من عندي</option>
-</select>
-<div style="height:10px"></div>
-<label for="hadithSelect">الحديث</label>
-<select id="hadithSelect">
-<option value="islam">حديث «بني الإسلام على خمس» — مثال للتجربة</option>
-<option value="deeds">حديث «إنما الأعمال بالنيات» — مثال للتجربة</option>
-</select>
-<div style="height:10px"></div>
-<div class="hadith" id="reference">بني الإسلام على خمس: شهادة أن لا إله إلا الله وأن محمدًا رسول الله، وإقام الصلاة، وإيتاء الزكاة، والحج، وصوم رمضان.</div>
-<div class="actions">
-<button class="secondary" id="toggleText">إخفاء النص للحفظ</button>
-<button class="secondary" id="showText">إظهار النص</button>
-</div>
-<p class="muted small" id="sourceNote">نص تعليمي مختصر للعرض الأولي؛ يجب مراجعة النص الكامل والتخريج قبل الإطلاق.</p>
-</section>
+  <section class="card">
+    <h2>١. اختر الحديث</h2>
+    <label for="hadithSelect">الأحاديث</label>
+    <select id="hadithSelect"></select>
+    <div class="actions">
+      <button class="secondary" id="toggleText">إخفاء النص للحفظ</button>
+      <button class="secondary" id="showText">إظهار النص</button>
+      <button class="secondary" id="prev">السابق</button>
+      <button class="secondary" id="next">التالي</button>
+    </div>
+    <div class="hadith" id="reference"></div>
+    <p class="muted small" id="sourceNote">المتن فقط. قد تختلف ألفاظ بعض الروايات بين الطبعات؛ راجع نسخة معتمدة للحفظ الدقيق.</p>
+  </section>
 
-<section class="card">
-<h2>٢. سمّع الحديث</h2>
-<p class="muted">اضغط «ابدأ التسميع» واسمح للمتصفح باستخدام الميكروفون. إذا لم يعمل التعرف الصوتي على جهازك، يمكنك كتابة ما سمّعته في المربع أدناه.</p>
-<div class="actions">
-<button class="primary" id="start">🎙️ ابدأ التسميع المباشر</button>
-<button class="danger" id="stop" disabled>إيقاف</button>
-</div>
-<div class="status" id="status" role="status">جاهز. قد يتطلب الميكروفون موقعًا آمنًا (HTTPS) ومتصفحًا يدعم التعرف على الكلام.</div>
-<label for="transcript" style="margin-top:14px">النص الذي تعرّف عليه المتصفح / التفريغ اليدوي</label>
-<textarea id="transcript" placeholder="سيظهر كلامك هنا أثناء التسميع، أو اكتبه يدويًا للتجربة..."></textarea>
-<div class="actions"><button class="primary" id="compare">قارن بالنص الأصلي</button><button class="secondary" id="clear">مسح</button></div>
-</section>
+  <section class="card">
+    <h2>٢. سمّع الحديث</h2>
+    <p class="muted">اضغط ابدأ التسميع واسمح باستخدام الميكروفون. يمكنك أيضًا الكتابة يدويًا.</p>
+    <div class="actions">
+      <button class="primary" id="start">🎙️ ابدأ التسميع</button>
+      <button class="danger" id="stop" disabled>إيقاف</button>
+    </div>
+    <div class="status" id="status" role="status">جاهز. يلزم HTTPS ومتصفح يدعم التعرف على الكلام.</div>
+    <label for="transcript" style="margin-top:14px">الكلام الذي تعرّف عليه المتصفح / التفريغ اليدوي</label>
+    <textarea id="transcript" placeholder="سيظهر كلامك هنا، أو اكتبه يدويًا..."></textarea>
+    <div class="actions">
+      <button class="primary" id="compare">قارن بالنص الأصلي</button>
+      <button class="secondary" id="clear">مسح التفريغ</button>
+    </div>
+  </section>
 
-<section class="card" id="results" aria-live="polite">
-<h2>٣. نتيجة المقارنة</h2>
-<p class="muted">ستظهر الكلمات المتطابقة والمختلفة والكلمات التي يبدو أنك تجاوزتها.</p>
-<div class="legend"><span><i class="dot" style="background:#32a66a"></i>مطابقة</span><span><i class="dot" style="background:#df6258"></i>مختلفة</span><span><i class="dot" style="background:#e6b44f"></i>مفقودة محتملة</span></div>
-<div class="words" id="comparison">ابدأ التسميع أو اكتب نصًا ثم اضغط «قارن بالنص الأصلي».</div>
-<div class="stats">
-<div class="stat"><strong id="accuracy">—</strong><span class="small">تطابق تقريبي</span></div>
-<div class="stat"><strong id="missingCount">—</strong><span class="small">كلمات مفقودة</span></div>
-<div class="stat"><strong id="wrongCount">—</strong><span class="small">كلمات مختلفة</span></div>
-</div>
-<div class="notice" style="margin-top:14px">تنبيه: المقارنة الحالية أولية وتعتمد على النص الذي يوفره المتصفح؛ قد تخطئ في التشكيل أو أسماء الرواة أو اختلاف الروايات. لا تعتمدها للحكم على صحة الحديث أو ضبطه دون مراجعة المصدر.</div>
-</section>
+  <section class="card" aria-live="polite" id="resultCard">
+    <div class="print-header">
+      <h1>نتيجة تسميع حديث: <span id="printTitle">—</span></h1>
+      <div class="print-sub">حافظ الحديث — الأربعون النووية</div>
+    </div>
+    <h2>٣. نتيجة المقارنة</h2>
+    <p class="muted">الأخضر: مطابق، الأحمر: مختلف، الأصفر: كلمة محتملة النقص.</p>
+    <div class="legend">
+      <span><i class="dot" style="background:#32a66a"></i>مطابقة</span>
+      <span><i class="dot" style="background:#df6258"></i>مختلفة</span>
+      <span><i class="dot" style="background:#e6b44f"></i>مفقودة محتملة</span>
+    </div>
+    <div class="words" id="comparison">اختر حديثًا وابدأ التسميع.</div>
+    <div class="stats">
+      <div class="stat"><strong id="accuracy">—</strong><span class="small">تطابق تقريبي</span></div>
+      <div class="stat"><strong id="missingCount">—</strong><span class="small">كلمات مفقودة</span></div>
+      <div class="stat"><strong id="wrongCount">—</strong><span class="small">كلمات مختلفة</span></div>
+    </div>
+    <div class="notice" style="margin-top:14px">التعرّف الآلي قد يخطئ في العربية، ولا يغني عن مراجعة المتن من مصدر موثوق. الكلمات الزائدة لا تُضاف إلى المتن المرجعي.</div>
+    <div class="actions no-print">
+      <button class="primary" id="printPdf">🖨️ حفظ النتيجة PDF</button>
+    </div>
+  </section>
 
-<section class="card">
-<h2>ما الذي ينقصنا قبل الإطلاق؟</h2>
-<ul>
-<li>قاعدة بيانات موثقة للأحاديث مع الكتاب والباب ورقم الحديث والطبعة/المصدر.</li>
-<li>محرك تعرف على الكلام العربي مناسب، مع اختبار اللهجات والنطق الفصيح.</li>
-<li>خوارزمية أفضل لمزامنة الكلمات ومعالجة التكرار والتصحيح الذاتي أثناء التسميع.</li>
-<li>مراجعة بشرية للنصوص والتخريج وحقوق استخدام قواعد البيانات.</li>
-</ul>
-</section>
-<footer>حافظ الحديث — نموذج أولي مجاني للتجربة. لا يتصل بعد بقاعدة بيانات شاملة للأحاديث.</footer>
+  <footer>حافظ الحديث — نسخة شخصية تجريبية. تمت إضافة 42 متنًا، دون الأسانيد أو الشروح.</footer>
 </main>
+
 <script>
-const examples = {
- islam: {
-  text:"بني الإسلام على خمس شهادة أن لا إله إلا الله وأن محمدا رسول الله وإقام الصلاة وإيتاء الزكاة والحج وصوم رمضان",
-  source:"صحيح البخاري — حديث أركان الإسلام (صياغة مختصرة للعرض؛ يلزم تثبيت اللفظ والرقم قبل النشر)."
- },
- deeds: {
-  text:"إنما الأعمال بالنيات وإنما لكل امرئ ما نوى",
-  source:"صحيح البخاري وصحيح مسلم — بداية حديث النية (مقتطف قصير للتجربة؛ يلزم تثبيت اللفظ والرقم قبل النشر)."
- }
-};
-const collection=document.getElementById('collection'), select=document.getElementById('hadithSelect');
-const reference=document.getElementById('reference'), note=document.getElementById('sourceNote');
-const transcript=document.getElementById('transcript'), statusBox=document.getElementById('status');
-let recognition=null, listening=false, hidden=false, finalTranscript='';
-function currentText(){return select.value==='custom'?reference.textContent:examples[select.value].text}
-function normalize(s){return s.toLowerCase().replace(/[ًٌٍَُِّْـٰٓٔٱ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[.,،؛:!?؟"'()[\]{}]/g,' ').replace(/\s+/g,' ').trim()}
-function renderReference(){
- const key=select.value;
- if(key==='custom'){reference.contentEditable='true';reference.style.background='#fffdf4';note.textContent='يمكنك تعديل النص يدويًا للتجربة. النص المخصص ليس مصدرًا موثقًا.'}
- else {reference.contentEditable='false';reference.textContent=key==='islam'?'بني الإسلام على خمس: شهادة أن لا إله إلا الله وأن محمدًا رسول الله، وإقام الصلاة، وإيتاء الزكاة، والحج، وصوم رمضان.':'إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى.';note.textContent=examples[key].source}
- hidden=false; reference.style.display='block';document.getElementById('toggleText').textContent='إخفاء النص للحفظ';document.getElementById('comparison').textContent='ابدأ التسميع أو اكتب نصًا ثم اضغط «قارن بالنص الأصلي».';
+/* ============================================================
+   قاعدة المتون — 42 حديثًا
+   ============================================================ */
+const hadiths = [
+{"title":"الأعمال بالنيات","text":"إنما الأعمال بالنيات وإنما لكل امرئ ما نوى فمن كانت هجرته إلى الله ورسوله فهجرته إلى الله ورسوله ومن كانت هجرته لدنيا يصيبها أو امرأة ينكحها فهجرته إلى ما هاجر إليه"},
+{"title":"مراتب الدين","text":"بينما نحن جلوس عند رسول الله صلى الله عليه وسلم ذات يوم إذ طلع علينا رجل شديد بياض الثياب شديد سواد الشعر لا يرى عليه أثر السفر ولا يعرفه منا أحد حتى جلس إلى النبي صلى الله عليه وسلم فأسند ركبتيه إلى ركبتيه ووضع كفيه على فخذيه وقال يا محمد أخبرني عن الإسلام فقال رسول الله صلى الله عليه وسلم الإسلام أن تشهد أن لا إله إلا الله وأن محمدا رسول الله وتقيم الصلاة وتؤتي الزكاة وتصوم رمضان وتحج البيت إن استطعت إليه سبيلا قال صدقت فعجبنا له يسأله ويصدقه قال فأخبرني عن الإيمان قال أن تؤمن بالله وملائكته وكتبه ورسله واليوم الآخر وتؤمن بالقدر خيره وشره قال صدقت قال فأخبرني عن الإحسان قال أن تعبد الله كأنك تراه فإن لم تكن تراه فإنه يراك قال فأخبرني عن الساعة قال ما المسؤول عنها بأعلم من السائل قال فأخبرني عن أمارتها قال أن تلد الأمة ربتها وأن ترى الحفاة العراة العالة رعاء الشاء يتطاولون في البنيان قال ثم انطلق فلبثت مليا ثم قال يا عمر أتدري من السائل قلت الله ورسوله أعلم قال فإنه جبريل أتاكم يعلمكم دينكم"},
+{"title":"أركان الإسلام","text":"بني الإسلام على خمس شهادة أن لا إله إلا الله وأن محمدا رسول الله وإقام الصلاة وإيتاء الزكاة والحج وصوم رمضان"},
+{"title":"مراحل الخلق","text":"إن أحدكم يجمع خلقه في بطن أمه أربعين يوما نطفة ثم يكون علقة مثل ذلك ثم يكون مضغة مثل ذلك ثم يرسل إليه الملك فينفخ فيه الروح ويؤمر بأربع كلمات بكتب رزقه وأجله وعمله وشقي أم سعيد فوالله الذي لا إله غيره إن أحدكم ليعمل بعمل أهل الجنة حتى ما يكون بينه وبينها إلا ذراع فيسبق عليه الكتاب فيعمل بعمل أهل النار فيدخلها وإن أحدكم ليعمل بعمل أهل النار حتى ما يكون بينه وبينها إلا ذراع فيسبق عليه الكتاب فيعمل بعمل أهل الجنة فيدخلها"},
+{"title":"النهي عن الابتداع","text":"من أحدث في أمرنا هذا ما ليس منه فهو رد"},
+{"title":"الحلال والحرام","text":"إن الحلال بين وإن الحرام بين وبينهما أمور مشتبهات لا يعلمهن كثير من الناس فمن اتقى الشبهات استبرأ لدينه وعرضه ومن وقع في الشبهات وقع في الحرام كالراعي يرعى حول الحمى يوشك أن يرتع فيه ألا وإن لكل ملك حمى ألا وإن حمى الله محارمه ألا وإن في الجسد مضغة إذا صلحت صلح الجسد كله وإذا فسدت فسد الجسد كله ألا وهي القلب"},
+{"title":"الدين النصيحة","text":"الدين النصيحة قلنا لمن قال لله ولكتابه ولرسوله ولأئمة المسلمين وعامتهم"},
+{"title":"حرمة دم المسلم","text":"أمرت أن أقاتل الناس حتى يشهدوا أن لا إله إلا الله وأن محمدا رسول الله ويقيموا الصلاة ويؤتوا الزكاة فإذا فعلوا ذلك عصموا مني دماءهم وأموالهم إلا بحق الإسلام وحسابهم على الله تعالى"},
+{"title":"النهي عن كثرة السؤال","text":"ما نهيتكم عنه فاجتنبوه وما أمرتكم به فأتوا منه ما استطعتم فإنما أهلك الذين من قبلكم كثرة مسائلهم واختلافهم على أنبيائهم"},
+{"title":"طيب الله","text":"إن الله طيب لا يقبل إلا طيبا وإن الله أمر المؤمنين بما أمر به المرسلين فقال يا أيها الرسل كلوا من الطيبات واعملوا صالحا إني بما تعملون عليم وقال يا أيها الذين آمنوا كلوا من طيبات ما رزقناكم ثم ذكر الرجل يطيل السفر أشعث أغبر يمد يديه إلى السماء يا رب يا رب ومطعمه حرام ومشربه حرام وملبسه حرام وغذي بالحرام فأنى يستجاب لذلك"},
+{"title":"اترك ما شككت فيه","text":"دع ما يريبك إلى ما لا يريبك"},
+{"title":"ترك ما لا يعني","text":"من حسن إسلام المرء تركه ما لا يعنيه"},
+{"title":"كمال الإيمان","text":"لا يؤمن أحدكم حتى يحب لأخيه ما يحب لنفسه"},
+{"title":"حرمة دم المسلم (٢)","text":"لا يحل دم امرئ مسلم يشهد أن لا إله إلا الله وأني رسول الله إلا بإحدى ثلاث الثيب الزاني والنفس بالنفس والتارك لدينه المفارق للجماعة"},
+{"title":"إكرام الضيف","text":"من كان يؤمن بالله واليوم الآخر فليقل خيرا أو ليصمت ومن كان يؤمن بالله واليوم الآخر فليكرم جاره ومن كان يؤمن بالله واليوم الآخر فليكرم ضيفه"},
+{"title":"النهي عن الغضب","text":"لا تغضب"},
+{"title":"الرفق بالحيوان","text":"إن الله كتب الإحسان على كل شيء فإذا قتلتم فأحسنوا القتلة وإذا ذبحتم فأحسنوا الذبح وليحد أحدكم شفرته فليرح ذبيحته"},
+{"title":"حسن الخلق","text":"اتق الله حيثما كنت وأتبع السيئة الحسنة تمحها وخالق الناس بخلق حسن"},
+{"title":"الإيمان بالقدر","text":"احفظ الله يحفظك احفظ الله تجده تجاهك إذا سألت فاسأل الله وإذا استعنت فاستعن بالله واعلم أن الأمة لو اجتمعت على أن ينفعوك بشيء لم ينفعوك إلا بشيء قد كتبه الله لك وإن اجتمعوا على أن يضروك بشيء لم يضروك إلا بشيء قد كتبه الله عليك رفعت الأقلام وجفت الصحف"},
+{"title":"الحياء من الإيمان","text":"إذا لم تستح فاصنع ما شئت"},
+{"title":"الاستقامة","text":"قل آمنت بالله ثم استقم"},
+{"title":"الطريق إلى الجنة","text":"الطهور شطر الإيمان والحمد لله تملأ الميزان وسبحان الله والحمد لله تملآن أو تملأ ما بين السماوات والأرض والصلاة نور والصدقة برهان والصبر ضياء والقرآن حجة لك أو عليك كل الناس يغدو فبائع نفسه فمعتقها أو موبقها"},
+{"title":"جوامع الخير","text":"يا عبادي إني حرمت الظلم على نفسي وجعلته بينكم محرما فلا تظالموا يا عبادي كلكم ضال إلا من هديته فاستهدوني أهدكم يا عبادي كلكم جائع إلا من أطعمته فاستطعموني أطعمكم يا عبادي كلكم عار إلا من كسوته فاستكسوني أكسكم يا عبادي إنكم تخطئون بالليل والنهار وأنا أغفر الذنوب جميعا فاستغفروني أغفر لكم يا عبادي إنكم لن تبلغوا ضري فتضروني ولن تبلغوا نفعي فتنفعوني يا عبادي لو أن أولكم وآخركم وإنسكم وجنكم كانوا على أتقى قلب رجل واحد منكم ما زاد ذلك في ملكي شيئا يا عبادي لو أن أولكم وآخركم وإنسكم وجنكم كانوا على أفجر قلب رجل واحد منكم ما نقص ذلك من ملكي شيئا يا عبادي لو أن أولكم وآخركم وإنسكم وجنكم قاموا في صعيد واحد فسألوني فأعطيت كل إنسان مسألته ما نقص ذلك مما عندي إلا كما ينقص المخيط إذا أدخل البحر يا عبادي إنما هي أعمالكم أحصيها لكم ثم أوفيكم إياها فمن وجد خيرا فليحمد الله ومن وجد غير ذلك فلا يلومن إلا نفسه"},
+{"title":"فضل الصدقة والذكر","text":"ذهب أهل الدثور بالأجور يصلون كما نصلي ويصومون كما نصوم ويتصدقون بفضول أموالهم قال أوليس قد جعل الله لكم ما تصدقون إن بكل تسبيحة صدقة وكل تكبيرة صدقة وكل تحميدة صدقة وكل تهليلة صدقة وأمر بالمعروف صدقة ونهي عن منكر صدقة وفي بضع أحدكم صدقة قالوا يا رسول الله أيأتي أحدنا شهوته ويكون له فيها أجر قال أرأيتم لو وضعها في حرام أكان عليه فيها وزر فكذلك إذا وضعها في الحلال كان له أجر"},
+{"title":"فضل الذكر","text":"كلمتان خفيفتان على اللسان ثقيلتان في الميزان حبيبتان إلى الرحمن سبحان الله وبحمده سبحان الله العظيم"},
+{"title":"طرق الخير","text":"كل سلامى من الناس عليه صدقة كل يوم تطلع فيه الشمس تعدل بين الاثنين صدقة وتعين الرجل في دابته فتحمله عليها أو ترفع له عليها متاعه صدقة والكلمة الطيبة صدقة وبكل خطوة تمشيها إلى الصلاة صدقة وتميط الأذى عن الطريق صدقة"},
+{"title":"البر والإثم","text":"البر حسن الخلق والإثم ما حاك في صدرك وكرهت أن يطلع عليه الناس"},
+{"title":"السمع والطاعة","text":"أوصيكم بتقوى الله والسمع والطاعة وإن تأمر عليكم عبد فإنه من يعش منكم فسيرى اختلافا كثيرا فعليكم بسنتي وسنة الخلفاء الراشدين المهديين عضوا عليها بالنواجذ وإياكم ومحدثات الأمور فإن كل بدعة ضلالة"},
+{"title":"أبواب الخير","text":"قلت يا رسول الله أخبرني بعمل يدخلني الجنة ويباعدني من النار قال لقد سألت عن عظيم وإنه ليسير على من يسره الله تعالى عليه تعبد الله لا تشرك به شيئا وتقيم الصلاة وتؤتي الزكاة وتصوم رمضان وتحج البيت ثم قال ألا أدلك على أبواب الخير الصوم جنة والصدقة تطفئ الخطيئة كما يطفئ الماء النار وصلاة الرجل في جوف الليل ثم تلا تتجافى جنوبهم عن المضاجع حتى بلغ يعملون ثم قال ألا أخبرك برأس الأمر وعموده وذروة سنامه قلت بلى يا رسول الله قال رأس الأمر الإسلام وعموده الصلاة وذروة سنامه الجهاد ثم قال ألا أخبرك بملاك ذلك كله قلت بلى يا رسول الله فأخذ بلسانه وقال كف عليك هذا قلت يا نبي الله وإنا لمؤاخذون بما نتكلم به فقال ثكلتك أمك يا معاذ وهل يكب الناس في النار على وجوههم أو على مناخرهم إلا حصائد ألسنتهم"},
+{"title":"حدود الشرع","text":"إن الله تعالى فرض فرائض فلا تضيعوها وحد حدودا فلا تعتدوها وحرم أشياء فلا تنتهكوها وسكت عن أشياء رحمة لكم غير نسيان فلا تبحثوا عنها"},
+{"title":"الزهد في الدنيا","text":"ازهد في الدنيا يحبك الله وازهد فيما عند الناس يحبك الناس"},
+{"title":"لا ضرر ولا ضرار","text":"لا ضرر ولا ضرار"},
+{"title":"البينة على المدعي","text":"لو يعطى الناس بدعواهم لادعى رجال أموال قوم ودماءهم لكن البينة على المدعي واليمين على من أنكر"},
+{"title":"تغيير المنكر","text":"من رأى منكم منكرا فليغيره بيده فإن لم يستطع فبلسانه فإن لم يستطع فبقلبه وذلك أضعف الإيمان"},
+{"title":"المسلم أخو المسلم","text":"لا تحاسدوا ولا تناجشوا ولا تباغضوا ولا تدابروا ولا يبع بعضكم على بيع بعض وكونوا عباد الله إخوانا المسلم أخو المسلم لا يظلمه ولا يخذله ولا يكذبه ولا يحقره التقوى هاهنا ويشير إلى صدره ثلاث مرات بحسب امرئ من الشر أن يحقر أخاه المسلم كل المسلم على المسلم حرام دمه وماله وعرضه"},
+{"title":"قضاء حوائج المسلمين","text":"من نفس عن مؤمن كربة من كرب الدنيا نفس الله عنه كربة من كرب يوم القيامة ومن يسر على معسر يسر الله عليه في الدنيا والآخرة ومن ستر مسلما ستره الله في الدنيا والآخرة والله في عون العبد ما كان العبد في عون أخيه ومن سلك طريقا يلتمس فيه علما سهل الله له به طريقا إلى الجنة وما اجتمع قوم في بيت من بيوت الله يتلون كتاب الله ويتدارسونه بينهم إلا نزلت عليهم السكينة وغشيتهم الرحمة وحفتهم الملائكة وذكرهم الله فيمن عنده ومن بطأ به عمله لم يسرع به نسبه"},
+{"title":"الترغيب في الحسنات","text":"إن الله كتب الحسنات والسيئات ثم بين ذلك فمن هم بحسنة فلم يعملها كتبها الله عنده حسنة كاملة وإن هم بها فعملها كتبها الله عنده عشر حسنات إلى سبعمائة ضعف إلى أضعاف كثيرة وإن هم بسيئة فلم يعملها كتبها الله عنده حسنة كاملة وإن هم بها فعملها كتبها الله سيئة واحدة"},
+{"title":"جزاء معاداة الأولياء","text":"إن الله تعالى قال من عادى لي وليا فقد آذنته بالحرب وما تقرب إلي عبدي بشيء أحب إلي مما افترضته عليه وما يزال عبدي يتقرب إلي بالنوافل حتى أحبه فإذا أحببته كنت سمعه الذي يسمع به وبصره الذي يبصر به ويده التي يبطش بها ورجله التي يمشي بها وإن سألني لأعطينه ولئن استعاذني لأعيذنه"},
+{"title":"التجاوز عن الخطأ","text":"إن الله تجاوز لي عن أمتي الخطأ والنسيان وما استكرهوا عليه"},
+{"title":"كن في الدنيا غريبا","text":"كن في الدنيا كأنك غريب أو عابر سبيل"},
+{"title":"اتباع الوحي","text":"لا يؤمن أحدكم حتى يكون هواه تبعا لما جئت به"},
+{"title":"سعة مغفرة الله","text":"يا ابن آدم إنك ما دعوتني ورجوتني غفرت لك على ما كان منك ولا أبالي يا ابن آدم لو بلغت ذنوبك عنان السماء ثم استغفرتني غفرت لك يا ابن آدم إنك لو أتيتني بقراب الأرض خطايا ثم لقيتني لا تشرك بي شيئا لأتيتك بقرابها مغفرة"}
+];
+
+/* ============================================================
+   عناصر الواجهة
+   ============================================================ */
+const select      = document.getElementById('hadithSelect');
+const reference   = document.getElementById('reference');
+const transcript  = document.getElementById('transcript');
+const statusBox   = document.getElementById('status');
+const startBtn    = document.getElementById('start');
+const stopBtn     = document.getElementById('stop');
+const printTitle  = document.getElementById('printTitle');
+
+let recognition = null;
+let listening   = false;
+let hidden      = false;
+
+/* تعبئة القائمة */
+hadiths.forEach((h, i) => {
+  const o = document.createElement('option');
+  o.value = i;
+  o.textContent = `الحديث ${i + 1}: ${h.title}`;
+  select.appendChild(o);
+});
+
+/* ============================================================
+   أدوات التطبيع والمقارنة
+   ============================================================ */
+function normalize(s) {
+  return s
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, '')
+    .replace(/[أإآٱ]/g, 'ا')
+    .replace(/ى/g, 'ي')
+    .replace(/ؤ/g, 'و')
+    .replace(/ئ/g, 'ي')
+    .replace(/ة/g, 'ه')
+    .replace(/[ﷺ]/g, ' ')
+    .replace(/[^\u0600-\u06FF\s]/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
 }
-select.addEventListener('change',renderReference);
-collection.addEventListener('change',()=>{if(collection.value==='custom'){select.value='custom';reference.textContent='اكتب نص الحديث هنا';renderReference()}else if(select.value==='custom'){select.value='islam';renderReference()}});
-document.getElementById('toggleText').onclick=()=>{hidden=true;reference.style.display='none';};
-document.getElementById('showText').onclick=()=>{hidden=false;reference.style.display='block';};
-document.getElementById('clear').onclick=()=>{transcript.value='';document.getElementById('comparison').textContent='تم المسح. ابدأ التسميع أو اكتب نصًا للمقارنة.';['accuracy','missingCount','wrongCount'].forEach(id=>document.getElementById(id).textContent='—');};
-function compare(){
- const target=normalize(currentText()).split(' ').filter(Boolean);
- const spoken=normalize(transcript.value).split(' ').filter(Boolean);
- if(!spoken.length){statusBox.textContent='لم يُلتقط كلام بعد. ابدأ التسميع أو اكتب النص يدويًا.';return}
- // Greedy ordered matching: label target words as correct, missing, or differing.
- let i=0,j=0,correct=0,missing=0,wrong=0,html='';
- while(i<target.length){
-  if(j<spoken.length && target[i]===spoken[j]){
-   html+=`<span class="word correct">${escapeHtml(target[i])}</span> `;correct++;i++;j++;
-  } else if(j+1<spoken.length && target[i]===spoken[j+1]){
-   html+=`<span class="word missing">${escapeHtml(target[i])} <small>(مفقودة)</small></span> `;missing++;i++;
-  } else if(j<spoken.length && !target.slice(i+1,Math.min(target.length,i+4)).includes(spoken[j])){
-   html+=`<span class="word wrong">${escapeHtml(target[i])}</span> `;wrong++;i++;if(j<spoken.length)j++;
-  } else {html+=`<span class="word missing">${escapeHtml(target[i])} <small>(مفقودة)</small></span> `;missing++;i++}
- }
- if(j<spoken.length) html+=`<div class="muted small" style="margin-top:8px">كلمات إضافية في التسميع: ${spoken.slice(j).map(escapeHtml).join('، ')}</div>`;
- const denom=Math.max(target.length,1), acc=Math.round(correct/denom*100);
- document.getElementById('comparison').innerHTML=html;
- document.getElementById('accuracy').textContent=acc+'%';
- document.getElementById('missingCount').textContent=missing;
- document.getElementById('wrongCount').textContent=wrong;
- statusBox.textContent='اكتملت المقارنة التقريبية. راجع الكلمات الملوّنة يدويًا؛ النتيجة ليست تصحيحًا علميًا معتمدًا.';
+
+function currentText() { return hadiths[Number(select.value)].text; }
+function currentTitle() { return hadiths[Number(select.value)].title; }
+
+function lev(a, b) {
+  if (a === b) return 0;
+  if (!a.length) return b.length;
+  if (!b.length) return a.length;
+  let prev = Array.from({ length: b.length + 1 }, (_, i) => i);
+  for (let i = 1; i <= a.length; i++) {
+    let cur = [i];
+    for (let j = 1; j <= b.length; j++) {
+      cur[j] = Math.min(cur[j - 1] + 1, prev[j] + 1,
+        prev[j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    }
+    prev = cur;
+  }
+  return prev[b.length];
 }
-function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
-document.getElementById('compare').onclick=compare;
-const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
-if(SpeechRecognition){
- recognition=new SpeechRecognition();recognition.lang='ar-SA';recognition.continuous=true;recognition.interimResults=true;
- recognition.onstart=()=>{listening=true;document.getElementById('start').disabled=true;document.getElementById('stop').disabled=false;statusBox.textContent='أستمع إليك الآن… تحدّث بوضوح.'};
- recognition.onresult=(event)=>{let interim='';finalTranscript='';for(let k=0;k<event.results.length;k++){const r=event.results[k];if(r.isFinal)finalTranscript+=r[0].transcript+' ';else interim+=r[0].transcript+' '}transcript.value=(finalTranscript+interim).trim();compare()};
- recognition.onerror=(e)=>{statusBox.textContent='تعذّر التعرف على الكلام ('+e.error+'). تحقق من إذن الميكروفون أو اكتب النص يدويًا.'};
- recognition.onend=()=>{listening=false;document.getElementById('start').disabled=false;document.getElementById('stop').disabled=true;if(statusBox.textContent.includes('أستمع'))statusBox.textContent='توقف الاستماع. يمكنك مراجعة النص ثم إعادة المقارنة.'};
- document.getElementById('start').onclick=()=>{try{recognition.start()}catch(e){statusBox.textContent='التعرف الصوتي يعمل بالفعل أو يحتاج إلى إعادة تحميل الصفحة.'}};
- document.getElementById('stop').onclick=()=>{if(recognition&&listening)recognition.stop()};
-}else{
- document.getElementById('start').onclick=()=>{statusBox.textContent='هذا المتصفح لا يدعم التعرف الصوتي المدمج. جرّب Chrome على Android مع اتصال بالإنترنت، أو اكتب النص يدويًا.'};
- document.getElementById('stop').onclick=()=>{};
+
+function close(a, b) {
+  if (a === b) return true;
+  if (Math.min(a.length, b.length) < 4) return false;
+  return lev(a, b) <= 1;
 }
-renderReference();
-</script>
-</body>
-</html>
+
+function esc(s) {
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+/* ============================================================
+   عرض المرجع وإعادة الضبط
+   ============================================================ */
+function resetComparison() {
+  document.getElementById('comparison').textContent =
+    'ابدأ التسميع أو اكتب نصًا ثم اضغط «قارن بالنص الأصلي».';
+  ['accuracy'
