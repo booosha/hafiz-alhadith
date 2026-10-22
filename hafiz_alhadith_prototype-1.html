@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#075b45">
+<title>حافظ الحديث — نموذج أولي</title>
+<style>
+:root{--green:#075b45;--green2:#0b7658;--pale:#eaf5ef;--cream:#fbfaf5;--ink:#17352d;--muted:#60766e;--red:#b42318;--amber:#a15c00;--line:#d9e6df}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Tahoma,Arial,sans-serif;line-height:1.65}
+header{background:var(--green);color:#fff;padding:16px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px;position:sticky;top:0;z-index:2}
+.brand{font-size:1.15rem;font-weight:800}.subbrand{font-size:.78rem;opacity:.85}
+main{max-width:780px;margin:0 auto;padding:18px 14px 40px}
+.hero{background:linear-gradient(135deg,#e5f3eb,#fffdf6);border:1px solid var(--line);border-radius:22px;padding:22px 18px;margin-bottom:16px}
+h1{font-size:1.45rem;margin:0 0 4px;color:var(--green)}h2{font-size:1.05rem;margin:0 0 12px}
+p{margin:5px 0}.muted{color:var(--muted);font-size:.9rem}
+.card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;margin:14px 0;box-shadow:0 5px 18px #0b45350a}
+label{display:block;font-weight:700;margin:0 0 6px}select,textarea,input{width:100%;border:1px solid #bfd2c8;border-radius:12px;padding:12px;background:#fff;color:var(--ink);font:inherit}
+textarea{min-height:95px;resize:vertical}
+button{border:0;border-radius:13px;padding:12px 16px;font:inherit;font-weight:750;cursor:pointer}
+.primary{background:var(--green);color:#fff}.secondary{background:var(--pale);color:var(--green);border:1px solid var(--line)}.danger{background:#fff0ee;color:var(--red)}
+.actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:12px}.status{margin-top:10px;padding:10px 12px;border-radius:12px;background:#f3f7f4;font-size:.9rem}
+.hadith{font-size:1.12rem;line-height:2.15;background:#fcfdfb;border:1px solid var(--line);border-radius:14px;padding:14px}
+.words{line-height:2.35;font-size:1.08rem}.word{display:inline-block;border-radius:6px;padding:0 3px;margin:1px 0}.correct{background:#d9f5e4;color:#075b45}.wrong{background:#ffe2df;color:#a21b13;text-decoration:underline wavy}.missing{background:#fff0c7;color:#8a4b00;border:1px dashed #dca33c}
+.legend{display:flex;gap:12px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:8px 0}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-left:4px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}.stat{background:var(--pale);border-radius:12px;text-align:center;padding:10px 4px}.stat strong{display:block;font-size:1.3rem;color:var(--green)}
+.small{font-size:.8rem}.notice{border-right:4px solid #dca33c;background:#fff8e6;padding:12px;border-radius:10px;font-size:.86rem}
+footer{text-align:center;color:var(--muted);font-size:.8rem;padding:20px}
+@media(min-width:650px){main{padding-top:26px}.hero{padding:28px}.two{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}}
+</style>
+</head>
+<body>
+<header><div><div class="brand">📖 حافظ الحديث</div><div class="subbrand">اسمع • قارن • أتقن</div></div><div class="small">نسخة تجريبية</div></header>
+<main>
+<section class="hero">
+<h1>احفظ الحديث، كلمةً كلمة</h1>
+<p>اختر حديثًا، أخفِ النص إن أردت، ثم سمّع بصوتك وقارن النتيجة بالنص المرجعي.</p>
+<p class="muted">هذا نموذج أولي للتجربة، وليس تطبيقًا حديثيًا معتمدًا بعد.</p>
+</section>
+
+<section class="card">
+<h2>١. اختر الحديث</h2>
+<label for="collection">مجموعة الأحاديث</label>
+<select id="collection">
+<option value="bukhari">صحيح البخاري</option>
+<option value="muslim">صحيح مسلم</option>
+<option value="riyad">رياض الصالحين</option>
+<option value="custom">نص تجريبي من عندي</option>
+</select>
+<div style="height:10px"></div>
+<label for="hadithSelect">الحديث</label>
+<select id="hadithSelect">
+<option value="islam">حديث «بني الإسلام على خمس» — مثال للتجربة</option>
+<option value="deeds">حديث «إنما الأعمال بالنيات» — مثال للتجربة</option>
+</select>
+<div style="height:10px"></div>
+<div class="hadith" id="reference">بني الإسلام على خمس: شهادة أن لا إله إلا الله وأن محمدًا رسول الله، وإقام الصلاة، وإيتاء الزكاة، والحج، وصوم رمضان.</div>
+<div class="actions">
+<button class="secondary" id="toggleText">إخفاء النص للحفظ</button>
+<button class="secondary" id="showText">إظهار النص</button>
+</div>
+<p class="muted small" id="sourceNote">نص تعليمي مختصر للعرض الأولي؛ يجب مراجعة النص الكامل والتخريج قبل الإطلاق.</p>
+</section>
+
+<section class="card">
+<h2>٢. سمّع الحديث</h2>
+<p class="muted">اضغط «ابدأ التسميع» واسمح للمتصفح باستخدام الميكروفون. إذا لم يعمل التعرف الصوتي على جهازك، يمكنك كتابة ما سمّعته في المربع أدناه.</p>
+<div class="actions">
+<button class="primary" id="start">🎙️ ابدأ التسميع المباشر</button>
+<button class="danger" id="stop" disabled>إيقاف</button>
+</div>
+<div class="status" id="status" role="status">جاهز. قد يتطلب الميكروفون موقعًا آمنًا (HTTPS) ومتصفحًا يدعم التعرف على الكلام.</div>
+<label for="transcript" style="margin-top:14px">النص الذي تعرّف عليه المتصفح / التفريغ اليدوي</label>
+<textarea id="transcript" placeholder="سيظهر كلامك هنا أثناء التسميع، أو اكتبه يدويًا للتجربة..."></textarea>
+<div class="actions"><button class="primary" id="compare">قارن بالنص الأصلي</button><button class="secondary" id="clear">مسح</button></div>
+</section>
+
+<section class="card" id="results" aria-live="polite">
+<h2>٣. نتيجة المقارنة</h2>
+<p class="muted">ستظهر الكلمات المتطابقة والمختلفة والكلمات التي يبدو أنك تجاوزتها.</p>
+<div class="legend"><span><i class="dot" style="background:#32a66a"></i>مطابقة</span><span><i class="dot" style="background:#df6258"></i>مختلفة</span><span><i class="dot" style="background:#e6b44f"></i>مفقودة محتملة</span></div>
+<div class="words" id="comparison">ابدأ التسميع أو اكتب نصًا ثم اضغط «قارن بالنص الأصلي».</div>
+<div class="stats">
+<div class="stat"><strong id="accuracy">—</strong><span class="small">تطابق تقريبي</span></div>
+<div class="stat"><strong id="missingCount">—</strong><span class="small">كلمات مفقودة</span></div>
+<div class="stat"><strong id="wrongCount">—</strong><span class="small">كلمات مختلفة</span></div>
+</div>
+<div class="notice" style="margin-top:14px">تنبيه: المقارنة الحالية أولية وتعتمد على النص الذي يوفره المتصفح؛ قد تخطئ في التشكيل أو أسماء الرواة أو اختلاف الروايات. لا تعتمدها للحكم على صحة الحديث أو ضبطه دون مراجعة المصدر.</div>
+</section>
+
+<section class="card">
+<h2>ما الذي ينقصنا قبل الإطلاق؟</h2>
+<ul>
+<li>قاعدة بيانات موثقة للأحاديث مع الكتاب والباب ورقم الحديث والطبعة/المصدر.</li>
+<li>محرك تعرف على الكلام العربي مناسب، مع اختبار اللهجات والنطق الفصيح.</li>
+<li>خوارزمية أفضل لمزامنة الكلمات ومعالجة التكرار والتصحيح الذاتي أثناء التسميع.</li>
+<li>مراجعة بشرية للنصوص والتخريج وحقوق استخدام قواعد البيانات.</li>
+</ul>
+</section>
+<footer>حافظ الحديث — نموذج أولي مجاني للتجربة. لا يتصل بعد بقاعدة بيانات شاملة للأحاديث.</footer>
+</main>
+<script>
+const examples = {
+ islam: {
+  text:"بني الإسلام على خمس شهادة أن لا إله إلا الله وأن محمدا رسول الله وإقام الصلاة وإيتاء الزكاة والحج وصوم رمضان",
+  source:"صحيح البخاري — حديث أركان الإسلام (صياغة مختصرة للعرض؛ يلزم تثبيت اللفظ والرقم قبل النشر)."
+ },
+ deeds: {
+  text:"إنما الأعمال بالنيات وإنما لكل امرئ ما نوى",
+  source:"صحيح البخاري وصحيح مسلم — بداية حديث النية (مقتطف قصير للتجربة؛ يلزم تثبيت اللفظ والرقم قبل النشر)."
+ }
+};
+const collection=document.getElementById('collection'), select=document.getElementById('hadithSelect');
+const reference=document.getElementById('reference'), note=document.getElementById('sourceNote');
+const transcript=document.getElementById('transcript'), statusBox=document.getElementById('status');
+let recognition=null, listening=false, hidden=false, finalTranscript='';
+function currentText(){return select.value==='custom'?reference.textContent:examples[select.value].text}
+function normalize(s){return s.toLowerCase().replace(/[ًٌٍَُِّْـٰٓٔٱ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[.,،؛:!?؟"'()[\]{}]/g,' ').replace(/\s+/g,' ').trim()}
+function renderReference(){
+ const key=select.value;
+ if(key==='custom'){reference.contentEditable='true';reference.style.background='#fffdf4';note.textContent='يمكنك تعديل النص يدويًا للتجربة. النص المخصص ليس مصدرًا موثقًا.'}
+ else {reference.contentEditable='false';reference.textContent=key==='islam'?'بني الإسلام على خمس: شهادة أن لا إله إلا الله وأن محمدًا رسول الله، وإقام الصلاة، وإيتاء الزكاة، والحج، وصوم رمضان.':'إنما الأعمال بالنيات، وإنما لكل امرئ ما نوى.';note.textContent=examples[key].source}
+ hidden=false; reference.style.display='block';document.getElementById('toggleText').textContent='إخفاء النص للحفظ';document.getElementById('comparison').textContent='ابدأ التسميع أو اكتب نصًا ثم اضغط «قارن بالنص الأصلي».';
+}
+select.addEventListener('change',renderReference);
+collection.addEventListener('change',()=>{if(collection.value==='custom'){select.value='custom';reference.textContent='اكتب نص الحديث هنا';renderReference()}else if(select.value==='custom'){select.value='islam';renderReference()}});
+document.getElementById('toggleText').onclick=()=>{hidden=true;reference.style.display='none';};
+document.getElementById('showText').onclick=()=>{hidden=false;reference.style.display='block';};
+document.getElementById('clear').onclick=()=>{transcript.value='';document.getElementById('comparison').textContent='تم المسح. ابدأ التسميع أو اكتب نصًا للمقارنة.';['accuracy','missingCount','wrongCount'].forEach(id=>document.getElementById(id).textContent='—');};
+function compare(){
+ const target=normalize(currentText()).split(' ').filter(Boolean);
+ const spoken=normalize(transcript.value).split(' ').filter(Boolean);
+ if(!spoken.length){statusBox.textContent='لم يُلتقط كلام بعد. ابدأ التسميع أو اكتب النص يدويًا.';return}
+ // Greedy ordered matching: label target words as correct, missing, or differing.
+ let i=0,j=0,correct=0,missing=0,wrong=0,html='';
+ while(i<target.length){
+  if(j<spoken.length && target[i]===spoken[j]){
+   html+=`<span class="word correct">${escapeHtml(target[i])}</span> `;correct++;i++;j++;
+  } else if(j+1<spoken.length && target[i]===spoken[j+1]){
+   html+=`<span class="word missing">${escapeHtml(target[i])} <small>(مفقودة)</small></span> `;missing++;i++;
+  } else if(j<spoken.length && !target.slice(i+1,Math.min(target.length,i+4)).includes(spoken[j])){
+   html+=`<span class="word wrong">${escapeHtml(target[i])}</span> `;wrong++;i++;if(j<spoken.length)j++;
+  } else {html+=`<span class="word missing">${escapeHtml(target[i])} <small>(مفقودة)</small></span> `;missing++;i++}
+ }
+ if(j<spoken.length) html+=`<div class="muted small" style="margin-top:8px">كلمات إضافية في التسميع: ${spoken.slice(j).map(escapeHtml).join('، ')}</div>`;
+ const denom=Math.max(target.length,1), acc=Math.round(correct/denom*100);
+ document.getElementById('comparison').innerHTML=html;
+ document.getElementById('accuracy').textContent=acc+'%';
+ document.getElementById('missingCount').textContent=missing;
+ document.getElementById('wrongCount').textContent=wrong;
+ statusBox.textContent='اكتملت المقارنة التقريبية. راجع الكلمات الملوّنة يدويًا؛ النتيجة ليست تصحيحًا علميًا معتمدًا.';
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+document.getElementById('compare').onclick=compare;
+const SpeechRecognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+if(SpeechRecognition){
+ recognition=new SpeechRecognition();recognition.lang='ar-SA';recognition.continuous=true;recognition.interimResults=true;
+ recognition.onstart=()=>{listening=true;document.getElementById('start').disabled=true;document.getElementById('stop').disabled=false;statusBox.textContent='أستمع إليك الآن… تحدّث بوضوح.'};
+ recognition.onresult=(event)=>{let interim='';finalTranscript='';for(let k=0;k<event.results.length;k++){const r=event.results[k];if(r.isFinal)finalTranscript+=r[0].transcript+' ';else interim+=r[0].transcript+' '}transcript.value=(finalTranscript+interim).trim();compare()};
+ recognition.onerror=(e)=>{statusBox.textContent='تعذّر التعرف على الكلام ('+e.error+'). تحقق من إذن الميكروفون أو اكتب النص يدويًا.'};
+ recognition.onend=()=>{listening=false;document.getElementById('start').disabled=false;document.getElementById('stop').disabled=true;if(statusBox.textContent.includes('أستمع'))statusBox.textContent='توقف الاستماع. يمكنك مراجعة النص ثم إعادة المقارنة.'};
+ document.getElementById('start').onclick=()=>{try{recognition.start()}catch(e){statusBox.textContent='التعرف الصوتي يعمل بالفعل أو يحتاج إلى إعادة تحميل الصفحة.'}};
+ document.getElementById('stop').onclick=()=>{if(recognition&&listening)recognition.stop()};
+}else{
+ document.getElementById('start').onclick=()=>{statusBox.textContent='هذا المتصفح لا يدعم التعرف الصوتي المدمج. جرّب Chrome على Android مع اتصال بالإنترنت، أو اكتب النص يدويًا.'};
+ document.getElementById('stop').onclick=()=>{};
+}
+renderReference();
+</script>
+</body>
+</html>
